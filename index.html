@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-card:hover::before {
+            left: 100%;
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .team-card:hover .member-photo {
+            border-color: #764ba2;
+            transform: scale(1.1);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .member-photo img {
+            transform: scale(1.1);
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .team-card {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .about-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .member-name {
+                font-size: 1.3rem;
+            }
+
+            .member-role {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation for page load */
+        .team-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Meet Our Team</h1>
+        </header>
+
+        <section class="about-section">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">About Us</h2>
+            <p>We're a passionate group of innovators dedicated to creating exceptional digital experiences. Our diverse team combines creativity, technical expertise, and strategic thinking to deliver outstanding results for our clients and projects.</p>
+        </section>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="member-photo">
+                    <img src="https://drive.google.com/file/d/1axdrrfEG7ZTdCDnEtj9RSQW1G076egqr/view?usp=sharing" alt="Soubhagya Ranjan hati">
+                </div>
+                <h3 class="member-name">Soubhagya Ranjan Hati</h3>
+                <p class="member-role">Frontend Developer</p>
+            </div>
+
+            <div class="team-card">
+                <div class="member-photo">
+                    <img src="https://via.placeholder.com/150/764ba2/ffffff?text=Mike" alt="Mukesh Satnami">
+                </div>
+                <h3 class="member-name">Mukesh Satnami</h3>
+                <p class="member-role">UX/UI Designer</p>
+            </div>
+
+            <div class="team-card">
+                <div class="member-photo">
+                    <img src="https://via.placeholder.com/150/f093fb/ffffff?text=Alex" alt="Bibek Bivar">
+                </div>
+                <h3 class="member-name">Bibek Bivar</h3>
+                <p class="member-role">Backend Developer</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced interactivity and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamCards = document.querySelectorAll('.team-card');
+            const aboutSection = document.querySelector('.about-section');
+            const header = document.querySelector('.header');
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe header and about section for scroll animations
+            observer.observe(header);
+            observer.observe(aboutSection);
+
+            // Enhanced card interactions
+            teamCards.forEach((card, index) => {
+                // Add click functionality
+                card.addEventListener('click', function() {
+                    const memberName = this.querySelector('.member-name').textContent;
+                    const memberRole = this.querySelector('.member-role').textContent;
+                    
+                    // Create a simple modal-like effect
+                    showMemberDetails(memberName, memberRole);
+                });
+
+                // Add mouse move parallax effect
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    this.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1) rotateX(0) rotateY(0)';
+                });
+
+                // Add keyboard navigation
+                card.setAttribute('tabindex', '0');
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Function to show member details
+            function showMemberDetails(name, role) {
+                // Remove any existing modal
+                const existingModal = document.querySelector('.member-modal');
+                if (existingModal) {
+                    existingModal.remove();
+                }
+
+                // Create modal
+                const modal = document.createElement('div');
+                modal.className = 'member-modal';
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>${name}</h3>
+                        <p>${role}</p>
+                        <p class="member-bio">Passionate about creating amazing user experiences and pushing the boundaries of modern web development.</p>
+                        <button class="contact-btn" onclick="contactMember('${name}')">Get in Touch</button>
+                    </div>
+                `;
+
+                // Add modal styles
+                const modalStyles = `
+                    .member-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                        opacity: 0;
+                        animation: fadeIn 0.3s ease forwards;
+                    }
+                    .modal-content {
+                        background: white;
+                        padding: 2rem;
+                        border-radius: 15px;
+                        text-align: center;
+                        max-width: 400px;
+                        width: 90%;
+                        transform: scale(0.7);
+                        animation: scaleIn 0.3s ease forwards;
+                    }
+                    .close-modal {
+                        position: absolute;
+                        top: 10px;
+                        right: 15px;
+                        font-size: 24px;
+                        cursor: pointer;
+                        color: #666;
+                    }
+                    .member-bio {
+                        margin: 1rem 0;
+                        color: #666;
+                        line-height: 1.5;
+                    }
+                    .contact-btn {
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        border: none;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        transition: transform 0.2s ease;
+                    }
+                    .contact-btn:hover {
+                        transform: scale(1.05);
+                    }
+                    @keyframes fadeIn {
+                        to { opacity: 1; }
+                    }
+                    @keyframes scaleIn {
+                        to { transform: scale(1); }
+                    }
+                `;
+
+                // Add styles to head if not already added
+                if (!document.querySelector('#modal-styles')) {
+                    const styleSheet = document.createElement('style');
+                    styleSheet.id = 'modal-styles';
+                    styleSheet.textContent = modalStyles;
+                    document.head.appendChild(styleSheet);
+                }
+
+                document.body.appendChild(modal);
+
+                // Close modal functionality
+                const closeBtn = modal.querySelector('.close-modal');
+                closeBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+
+                // ESC key to close
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                    }
+                });
+
+                function closeModal() {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            }
+
+            // Contact member function
+            window.contactMember = function(name) {
+                alert(`Thanks for your interest in connecting with ${name}! In a real application, this would open a contact form or email client.`);
+            };
+
+            // Dynamic background animation
+            function createFloatingElements() {
+                const container = document.querySelector('.container');
+                
+                for (let i = 0; i < 5; i++) {
+                    const element = document.createElement('div');
+                    element.className = 'floating-element';
+                    element.style.cssText = `
+                        position: absolute;
+                        width: ${Math.random() * 100 + 50}px;
+                        height: ${Math.random() * 100 + 50}px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 50%;
+                        top: ${Math.random() * 100}%;
+                        left: ${Math.random() * 100}%;
+                        animation: float ${Math.random() * 10 + 10}s infinite ease-in-out;
+                        pointer-events: none;
+                        z-index: -1;
+                    `;
+                    document.body.appendChild(element);
+                }
+            }
+
+            // Add floating animation CSS
+            const floatingCSS = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(180deg); }
+                }
+            `;
+            const floatingStyleSheet = document.createElement('style');
+            floatingStyleSheet.textContent = floatingCSS;
+            document.head.appendChild(floatingStyleSheet);
+
+            createFloatingElements();
+
+            // Smooth scroll for any future navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add subtle typing effect to the about section
+            const aboutText = aboutSection.querySelector('p');
+            const originalText = aboutText.textContent;
+            aboutText.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    aboutText.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 20);
+                }
+            }
+            
+            // Start typing effect after a delay
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
